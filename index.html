@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>OSS Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" />
-    
+   
     <style>
         label {
             width: 100px;
@@ -99,14 +99,17 @@
         }
 
         function checkValueEmail() {
-
-          let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
              if (!pattern.test(document.getElementById('email').value)) {
                  console.log(document.getElementById('email').value)
                 document.getElementById('emailDanger').style.display = "block";
             } else {
                 document.getElementById('emailDanger').style.display = "none";
                 checkValid();
+
+            }
+
+           
         }
 
         function checkValid() {
