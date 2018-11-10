@@ -50,6 +50,93 @@
 
     <script src="./main.js"></script>
 
-</body>
+<<<<<<< HEAD
+=======
+    <script>
+        function myForm() {
 
+            alert('form valid');
+        }
+
+
+        function checkValueFirstName() {
+
+            if (document.getElementById("firstName").value === "") {
+                document.getElementById('firstNameDanger').style.display = "block";
+            } else {
+                document.getElementById('firstNameDanger').style.display = "none";
+                checkValid();
+
+
+            }
+        }
+
+        function checkValueLastName() {
+
+            if (document.getElementById("lastName").value === "") {
+                document.getElementById('lastNameDanger').style.display = "block";
+            } else {
+                document.getElementById('lastNameDanger').style.display = "none";
+                checkValid();
+
+            }
+        }
+
+        function checkValueEmail() {
+            let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+             if (!pattern.test(document.getElementById('email').value)) {                 
+                document.getElementById('emailDanger').style.display = "block";
+            } else {
+                document.getElementById('emailDanger').style.display = "none";
+                checkValid();
+
+            }
+
+           
+        }
+
+        function checkValid() {
+            if (document.getElementById('firstNameDanger').style.display === "none" &&
+                document.getElementById('lastNameDanger').style.display === "none" &&
+                document.getElementById('emailDanger').style.display === "none") {
+                  if (document.getElementById("firstName").value !== "" &&
+                  document.getElementById("lastName").value !== "" &&
+                  document.getElementById("email").value !== "" ){
+                    document.getElementById("btn").disabled = false;
+                }                    
+            }
+        }
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content">
+                    <p>Валидация HTML5</p>
+                    <form id="testFormHTML">
+
+                        <div>
+                            <label for="firstName">First name</label>
+                            <input type="text" id="firstName" maxlength="60" required />
+                        </div>
+
+                        <div>
+                            <label for="lastName">Last name</label>
+                            <input type="text" id="lastName" maxlength="60" required />
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
+                                required placeholder="email@mail." />
+                        </div>
+
+                        <button type="submit">Send</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> 012183e1bd06d2c2658933f7b1130515ab9752fc
+</body>
 </html>
