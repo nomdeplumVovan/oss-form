@@ -1,159 +1,55 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>OSS Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" />
-    <script src="./index.js"></script>
-    <style>
-        label {
-            width: 100px;
-        }
-        label.error {
-            color: red;
-        }
-        input {
-            border : 1px solid #ccc;
-        }
-        input.error {
-            border-color: red;
-        }
-        .content {
-            padding: 15px;
-            border: 1px solid #ccc;
-        }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Trial OSS form</title>
 
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="content">
-                    <form onsubmit="myForm()" id="testForm">
-                        <!-- <form> -->
+                    <form onsubmit="onSubmit()" action="#" id="testForm">
                         <div>
-                            <label for="firstName">First name</label>
-                            <input type="text" id="firstName" onblur="checkValueFirstName()" />
-                            <div class="alert alert-danger" id="firstNameDanger" style="display: none; width: 300px;">
+                            <label for="firstName">First name </label>
+                            <input type="text" id="firstName" value="" />
+                            <div class="alert alert-danger" id="firstNameInvalid" style="display: none; width: 300px;">
                                 invalid firstName
                             </div>
                         </div>
 
                         <div>
                             <label for="lastName">Last name</label>
-                            <input type="text" id="lastName" onblur="checkValueLastName()" />
-                            <div class="alert alert-danger" id="lastNameDanger" style="display: none; width: 300px;">
+                            <input type="text" id="lastName" value=""/>
+                            <div class="alert alert-danger" id="lastNameInvalid" style="display: none; width: 300px;">
                                 invalid lastName
                             </div>
                         </div>
 
                         <div>
                             <label for="email">Email</label>
-                            <input type="text" id="email" onblur="checkValueEmail()" />
-                            <div class="alert alert-danger" id="emailDanger" style="display:none; width: 300px;">
+                            <input type="text" id="email" value=""/>
+                            <div class="alert alert-danger" id="emailInvalid" style="display:none; width: 300px;">
                                 invalid email
                             </div>
                         </div>
 
-                        <button type="submit" id="btn" disabled="disabled">Send</button>
 
+                        <button type="button" onclick="onSubmit()">send</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="./main.js"></script>
 
-    <script>
-        function myForm() {
-
-            alert('form valid');
-        }
-
-
-        function checkValueFirstName() {
-
-            if (document.getElementById("firstName").value === "") {
-                document.getElementById('firstNameDanger').style.display = "block";
-            } else {
-                document.getElementById('firstNameDanger').style.display = "none";
-                checkValid();
-
-
-            }
-        }
-
-        function checkValueLastName() {
-
-            if (document.getElementById("lastName").value === "") {
-                document.getElementById('lastNameDanger').style.display = "block";
-            } else {
-                document.getElementById('lastNameDanger').style.display = "none";
-                checkValid();
-
-            }
-        }
-
-        function checkValueEmail() {
-
-            // не  вышла валидация по паттерну
-            //let pattern ="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$";
-            // в HTML читается паттерн, а здесь чего-то не хочет.
-            if (document.getElementById('email').value === "") {
-                document.getElementById('emailDanger').style.display = "block";
-            } else {
-                document.getElementById('emailDanger').style.display = "none";
-                checkValid();
-
-            }
-        }
-
-        function checkValid() {
-            if (document.getElementById('firstNameDanger').style.display === "none" &&
-                document.getElementById('lastNameDanger').style.display === "none" &&
-                document.getElementById('emailDanger').style.display === "none") {
-                  if (document.getElementById("firstName").value !== "" &&
-                  document.getElementById("lastName").value !== "" &&
-                  document.getElementById("email").value !== "" ){
-                    document.getElementById("btn").disabled = false;
-                }                    
-            }
-        }
-    </script>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="content">
-                    <p>Валидация HTML5</p>
-                    <form id="testFormHTML">
-
-                        <div>
-                            <label for="firstName">First name</label>
-                            <input type="text" id="firstName" maxlength="60" required />
-                        </div>
-
-                        <div>
-                            <label for="lastName">Last name</label>
-                            <input type="text" id="lastName" maxlength="60" required />
-                        </div>
-
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="text" id="email" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
-                                required placeholder="email@mail." />
-                        </div>
-
-                        <button type="submit">Send</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>

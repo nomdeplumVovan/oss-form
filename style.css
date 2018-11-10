@@ -1,0 +1,30 @@
+.row {
+  background: #f8f9fa;
+  margin-top: 20px;
+}
+
+.col {
+  border: solid 1px #6c757d;
+  padding: 10px;
+}
+
+label {
+  width: 100px;
+}
+
+label.error {
+  color: red;
+}
+
+input {
+  border: 1px solid #ccc;
+}
+
+input.error {
+  border-color: red;
+}
+
+.content {
+  padding: 15px;
+  border: 1px solid #ccc;
+}
